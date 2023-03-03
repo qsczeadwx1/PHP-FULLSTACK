@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>고객정보</legend>
+            <label for="id">아이디</label>
+            <input type="text" required autofocus placeholder="10자 이내로 입력해 주세요.">
+            <br>
+            <label for="pw">패스워드</label>
+            <input type="password">
+            <br>
+            <label for="readonly">참조사항</label>
+            <input type="text" readonly value="참조">
+            <br>
+            <ul>
+                <li>
+                    <label for="sb">딸기</label>
+                    <input checked value="sb" type="checkbox" name="sb" id="sb">
+                </li>
+                <li>
+                    <label for="ba">바나나</label>
+                    <input value="ba" type="checkbox" name="ba" id="ba">
+                </li>
+                <li>
+                    <label for="wm">수박</label>
+                    <input value="wm" type="checkbox" name="wm" id="wm">
+                </li>
+            </ul>
+            <br>
+            <ul>
+                <li>
+                    <label for="r_sb">딸기</label>
+                    <input checked value="1" type="radio" name="fr" id="r_sb">
+                </li>
+                <li>
+                    <label for="r_ba">바나나</label>
+                    <input value="2" type="radio" name="fr" id="r_ba">
+                </li>
+                <li>
+                    <label for="r_wm">수박</label>
+                    <input value="3" type="radio" name="fr" id="r_wm">
+                </li>
+            </ul>
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+</body>
+</html>
