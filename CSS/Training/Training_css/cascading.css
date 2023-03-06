@@ -1,0 +1,13 @@
+#container{
+    width:600px;
+    margin:20px auto;
+}
+h1{
+    display:inline-block;
+    background-color: blue;
+    color: white;
+}
+.tam{
+    font-weight:bold;
+    color:red;
+}

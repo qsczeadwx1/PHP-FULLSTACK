@@ -1,0 +1,19 @@
+#container{
+    color: brown;
+}
+h1{
+    border: 5px solid green; display:inline-block; 
+}
+h2{
+    color: blue; border: 5px solid green; display:inline-block;
+}
+#cal{
+    color: green; border: 5px solid green; display:inline-block; padding-right:10px; padding-top:5px; padding-bottom:5px;
+}
+table, td, th{
+    border : 1px solid black;
+    border-collapse : collapse;
+}
+td, th{
+    padding:10px;
+}
