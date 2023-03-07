@@ -1,0 +1,26 @@
+h1{
+    color:white;
+}
+#check{
+    background-color: black; color:white; line-height:50px; text-indent:1em; 
+}
+.container_2{
+    background-color:rgba(0, 0, 0,0.5); text-indent:2em; color:green; 
+    padding-top:300px; padding-bottom:10px;
+}
+.container_3{
+    text-align:center;
+}
+.font_blue{
+    color:blue;
+}
+h2{
+    color:green;
+}
+#text_1{
+    color:green;
+}
+.container_2{
+    background-image:url(Training_css/apple.PNG);
+    background-size: cover;
+}

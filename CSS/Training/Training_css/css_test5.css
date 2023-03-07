@@ -1,0 +1,35 @@
+.container{
+    border:none; margin:0 auto; width:600px;
+}
+.container_1{
+    border:1px dotted black; margin-bottom:20px; 
+    border-top-left-radius: 1.5em; border-top-right-radius: 1.5em;
+    display:inline-block; padding:20px; width:600px;
+}
+.container_2{
+    border:1px dotted black; margin-bottom:20px; display:inline-block;
+    padding:20px; width:600px;
+}
+.container_3{
+    border:1px dotted black; margin-bottom:20px; 
+    border-bottom-left-radius: 1.5em; border-bottom-right-radius:1.5em;  
+    padding:20px; display:inline-block; width:600px; border-left-style:inset;
+}
+table, th, td{
+    border: 1px solid #b89e9e; border-collapse: collapse; padding: 10px;
+}
+.td_1{
+    background-color:#E2E2E2; width:60px; text-align:center;
+}
+ul{
+    list-style-type: decimal;
+}
+.th_1{
+    width:150px;
+}
+.th_2{
+    width:40px; text-align:center;
+}
+#td_1{
+    padding-left:20px;
+}
