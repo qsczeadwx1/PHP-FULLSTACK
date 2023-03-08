@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div_linear{
+            width: 400px;
+            height: 300px;
+            border:1px solid black;
+            background: linear-gradient(45deg, blue, purple 20%, pink);
+        }
+        .div_radial{
+            width:400px;
+            height:300px;
+            border:1px solid black;
+            background: radial-gradient(circle closest-side at 80% 20%, aqua, violet 20%, pink, purple);
+        }
+    </style>
+</head>
+<body>
+    <h2>선형 그라이데션</h2>
+    <div class="div_linear"></div>
+    <br>
+    <h2>원형 그라이데션</h2>
+    <div class="div_radial"></div>
+</body>
+</html>

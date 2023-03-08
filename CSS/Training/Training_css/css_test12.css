@@ -1,0 +1,35 @@
+body{
+    padding:30px;
+    padding-top:0px;
+    margin:auto;
+    background-color:black;
+}
+.container{
+    width:700px;
+    height:800px;
+    padding:20px;
+    background-color:white;
+    background-image:url(apple.PNG);
+    background-size:400px 300px;
+    background-repeat:no-repeat;
+    background-position:bottom right;
+    margin:auto;
+}
+.title_1{
+    height:100px;
+    line-height:100px;
+    text-align:center;
+    background-color: black;
+    color:white;
+}
+.s_title_1{
+    text-align:center;
+    font-style:oblique;
+}
+.ss_title_1{
+    color:green;
+}
+.content_1{
+    line-height:30px;
+    list-style-type:none;
+}
