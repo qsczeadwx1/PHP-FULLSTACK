@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div_img{
+            background-image:url('/CSS/Training/Training_css/'), url('/CSS/Training/Training_css/apple.PNG');
+            width:300px;
+            height:300px;
+        }
+        .div_repeat{
+            border:1px solid black;
+            background-image: url('/CSS/Training/Training_css/apple.PNG');
+            width:300px;
+            height:300px;
+        }
+        /* body{
+            background-image: url('/CSS/Training/Training_css/apple.PNG');
+        } */
+
+        .div_position{
+            background-image: url('/CSS/Training/Training_css/apple.PNG');
+            width:300px;
+            height:300px;
+            border:1px solid black;
+            background-repeat: no-repeat;
+            /* background-position:bottom 30% right 30%; */
+            background-size:contain;
+        }
+        .at_img{
+            background-image: url('/CSS/Training/Training_css/apple.PNG');
+            color:white;
+            background-attachment: scroll;
+            width:150px;
+            height:200px;
+            display:inline-block;
+            border:1px solid black;
+            overflow:scroll
+        }
+        #div_im_scroll{
+            background-attachment: scroll;
+        }
+        #div_im_fixed{
+            background-attachment: fixed;
+        }
+        #div_im_local{
+            background-attachment: local;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>background-image</h1>
+    <div class="div_img"></div>
+    <br>
+    <h1>background-repeat</h1>
+    <div class="div_repeat"></div> -->
+
+    <!-- <h1>background-position</h1>
+    <div class="div_position"></div> -->
+    <div class="at_img" id="div_im_scroll">요리(料理, Cooking)는 ‘요리음식점’(한성주보, 1886년 10월4일치)에 처음 나온, 조선 말 한성에 
+        진출한 일본인들이 음식을 만들어 팔던 가게의 간판을 인용한 말로 먹기 좋게 가공한 음식이나 가공 
+        행위 자체를 의미한다. 
+    </div>
+    <div class="at_img" id="div_im_fixed">요리(料理, Cooking)는 ‘요리음식점’(한성주보, 1886년 10월4일치)에 처음 나온, 조선 말 한성에 
+        진출한 일본인들이 음식을 만들어 팔던 가게의 간판을 인용한 말로 먹기 좋게 가공한 음식이나 가공 
+        행위 자체를 의미한다.
+     </div>
+    <div class="at_img" id="div_im_local">요리(料理, Cooking)는 ‘요리음식점’(한성주보, 1886년 10월4일치)에 처음 나온, 조선 말 한성에 
+        진출한 일본인들이 음식을 만들어 팔던 가게의 간판을 인용한 말로 먹기 좋게 가공한 음식이나 가공 
+        행위 자체를 의미한다. 
+    </div>
+</body>
+</html>
