@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Training_css/css_test14.css">
+</head>
+<body>
+    <div class="container">
+    <form action="">
+    <fieldset>
+        <legend>I want YOU!</legend>
+        <p>
+        <label for="name_1" class="input_label">이름</label>
+        <input type="text" name="name_1" id="name_1" required autofocus>
+    </p>
+        <p>
+        <label for="year_1" class="input_label">나이</label>
+        <input type="number" min="20" name="year_1" id="year_1" required >
+        </p>
+        <p>
+            <label for="radio_2" class="input_label" id="radio_2">성별</label>
+        <ul>
+            <li>
+                <input type="radio" name="ra_1" class="ra_1" id="ra_1" required>
+                <label for="ra_1" class="ra_label">남자</label>
+            </li>
+            <li>
+                <input type="radio" name="ra_1" class="ra_1" id="ra_2">
+                <label for="ra_2" class="ra_label">여자</label>
+            </li>
+        </ul>
+        </p>
+        <p>
+            <label for="textarea_1" class="textarea_label">요청사항</label>
+            <textarea id="textarea_1" placeholder="요청 사항 입력"></textarea>
+        </p>
+            <button type="submit" id="submit_1">보내기</button>
+            <p id="submit_title">내용을 다시 한 번 확인해 주세요.</p>
+    </fieldset>
+</form>
+</div>
+</body>
+</html>

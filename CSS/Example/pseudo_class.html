@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            :link : 아직 방문하지 않은 요소에만 스타일을 적용
+            :visited : 방문한적이 있는 요소에만 스타일을 적용
+            :hover : 마우스 포인트를 요소 위에 올렸을 때 스타일을 적용
+            :active : 활성화한 요소에 스타일 적용
+            :focus : 포커스를 받은 요소에 스타일을 적용
+            *가급적 이 순서를 지켜서 사용할것. 순서가 섞이면 오작동할 가능성 있음
+            :target : 앵커 대상에 스타일을 적용
+
+            :nth-child(n) : n번째 자식 요소에 스타일 적용(홀, 짝도 가능)
+            A:nth-of-type() : A에 선택한 타입에서 n번째 요소에 스타일 적용
+            :not(selector) : ()안에 넣은 선택자를 제외한 요소에 스타일 적용
+
+            ::first-letter : 
+        */
+
+        a:link{
+            color: blue;
+            text-decoration:none;
+        }
+        a:visited{
+            color: white; 
+            text-decoration:none;
+        }
+        a:hover{
+            background-color:crimson;
+        }
+        ul{
+            list-style:none; 
+        }
+        li{
+            float:left; 
+            padding: 10px 20px;
+            background-color:black;
+            border: 1px solid black;
+        }
+        input:focus{
+            border:3px solid purple;
+        }
+        /* a:active{
+            background-color:aqua;
+        }
+        #target_1:target{
+            background-color: burlywood;
+        }
+
+        div :nth-child(odd){
+            background-color: yellow;
+        }
+        div h2:nth-of-type(2){
+            background-color:brown;
+        }
+        div :not(h2){
+            background-color: blue;
+        } */
+        .container_2 .pf_1::first-letter{
+            background-color: blue;
+        }
+        .container_2 .pf_2::first-line{
+            background-color: orange;
+        }
+        .pf_1 > span::before{
+            content: '*';
+            color:red;
+            
+        }
+        .pf_2 > span::after{
+            content: '중요';
+            color:red;
+        }
+        .container_2 p::selection{
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>가상 요소</legend>
+        <div class="container_2">
+            <h2>h2_1</h2>
+            <p class="pf_1">포유류의 오줌에 함유되어 있는 질소 화합물. 
+        체내에서 단백질이 분해하여 생성됨. 공업적으로는 <span>암모니아와 이산화탄소</span>에서 합성됨.
+        무색의 기둥 모양의 결정.</p>
+            <p class="pf_2">포유류의 오줌에 함유되어 있는 질소 화합물. 
+        체내에서 단백질이 분해하여 생성됨. 공업적으로는 <span>암모니아와 이산화탄소</span>에서 합성됨.
+        무색의 기둥 모양의 결정.</p>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>구조 가상 클래스</legend>
+        <div class="container">
+            <h2>h2_1</h2>
+            <p>p_1</p>
+            <p>p_2</p>
+            <h2>h2_2</h2>
+            <p>p_3</p>
+        </div>
+    </fieldset>
+    <a href="https://naver.com">네이버</a>
+    <nav>
+        <ul>
+            <li><a href="#target_1">네이버1</a></li>
+            <li><a href="https://naver.com">네이버2</a></li>
+            <li><a href="https://naver.com">네이버3</a></li>
+            <li><a href="https://naver.com">네이버4</a></li>
+            <li><a href="https://naver.com">네이버5</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br>
+    <span id="target_1">target 테스트</span>
+    <br><br>
+    <label for="input_1">텍스트</label>
+    <input type="text" id="input_1">
+</body>
+</html>

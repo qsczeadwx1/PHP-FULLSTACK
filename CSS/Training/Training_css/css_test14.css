@@ -1,0 +1,72 @@
+body{
+    margin:0;
+    padding:0;
+}
+fieldset{
+    width:600px;
+    margin:0 auto;
+    background-image: url(pair.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+legend{
+    font-size:xx-large;
+    font-weight: 900;
+    color:blue;
+}
+li{
+    list-style: none;
+    display:inline-block;
+}
+input:focus{
+    border:3px solid red;
+    outline:none;
+}
+textarea:focus{
+    border:3px solid red;
+    outline:none;
+}
+textarea{
+    width:250px;
+    height:200px;
+}
+.input_label::before{
+    content:'*';
+    color:red;
+}
+#name_1, #year_1, #textarea_1{
+    background:transparent;
+}
+.textarea_label{
+    float:left;
+    font-weight: 900;
+    padding-right:10px;
+}
+#submit_1{
+    width:70px;
+    height:30px;
+    outline:none;
+}
+.input_label{
+    font-weight: 900;
+}
+#radio_2{
+    float:left;
+}
+.ra_1:checked ~ label{
+    color:red;
+}
+.ra_label{
+    font-weight: 900;
+}
+#submit_title{
+    display:none;
+    font-size:20px;
+    font-weight:900;
+    width:auto;
+    color:white;
+    background-color: black;
+}
+button:hover + #submit_title{
+    display:inline;
+}
