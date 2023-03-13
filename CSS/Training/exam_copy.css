@@ -1,0 +1,98 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin:0;
+    padding:0;
+}
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+p,
+a {
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+a{
+    text-decoration: none;
+    color:white;
+    background-color: goldenrod;
+    padding:5px;
+    border-radius: 0.5em;
+}    
+h1{
+    color:white;
+    font-size:50px;
+    margin:0.5em;
+}
+li{
+    border:1px solid gray;
+    border-radius: 1em;
+    padding:10px;
+    margin:10px;
+    width:20vw;
+    min-width: 250px;
+    max-width: 300px;
+    flex-basis:fill;
+}
+footer{
+    text-align:center;
+    position:fixed;
+    bottom:0px;
+    background-color: black;
+    color:white;
+    width:100%;
+    
+}
+.wrapper{
+    position:relative;
+}
+figure{
+    position:relative;
+}
+figcaption{
+    position:absolute;
+    color:white;
+    background-color:rgba(0, 0, 0, 50%);
+    bottom:5px;
+    width:95%;
+    padding-left:5%;
+}
+img{
+    width:100%;
+}
+.hero{
+    background-size: cover;
+    align-items: center;
+    display:flex;
+    flex-wrap:wrap;
+    min-height:100px;
+}
+article > p{
+    color:white;
+    font-size:20px;
+}
+a:hover{
+    background-color: rgba(218, 165, 32, 50%);
+}
+article{
+    margin:1em;
+}
+ul{
+    list-style: none;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-wrap: wrap;
+
+}
+section > article{
+    min-width: 300px;
+}
