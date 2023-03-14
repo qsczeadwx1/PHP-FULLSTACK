@@ -52,3 +52,26 @@ WHERE emp_no IN (
 					WHERE title = 'Senior Engineer'
 					AND to_date >= NOW()
 					);
+
+					INSERT INTO employees(
+	emp_no
+	,birth_date
+	,first_name
+	,last_name
+	,gender
+	,hire_date
+)
+VALUES
+(
+	500000
+	,NOW()
+	,'MinGyu'
+	,'Kim'
+	,'M'
+	,NOW()
+);
+
+
+ROLLBACK;
+
+SELECT @@autocommit;
