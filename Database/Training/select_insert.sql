@@ -14,10 +14,10 @@ AND avg_s <= 50000;
 SELECT *
 FROM dept_manager
 WHERE emp_no in (
-						SELECT emp_no 
-						FROM dept_manager
-						WHERE dept_no = 'd009'
-						);
+					SELECT emp_no 
+					FROM dept_manager
+					WHERE dept_no = 'd009'
+				);
 						
 SELECT *
 FROM dept_manager
@@ -53,7 +53,7 @@ WHERE emp_no IN (
 					AND to_date >= NOW()
 					);
 
-					INSERT INTO employees(
+INSERT INTO employees(
 	emp_no
 	,birth_date
 	,first_name
