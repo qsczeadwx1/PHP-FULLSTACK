@@ -1,0 +1,70 @@
+INSERT INTO test_tbl(
+	MEM_NO 
+	,MEM_NAME
+	,MEM_AGE
+	,MEM_SEX
+	,MEM_SIGNIN_DATE
+	,MEM_SIGNOUT_DATE
+)
+VALUES(
+	4
+	,'김민규'information_schemainformation_schematesttest_employees
+	,26
+	,'M'
+	,NOW()
+	,NULL
+	);
+	
+
+
+COMMIT;
+
+DELETE FROM test_tbl WHERE MEM_NO;
+
+ROLLBACK;
+
+TRUNCATE TABLE test_tbl;
+
+employees
+
+DROP TABLE test_tbl;
+
+employees
+
+TIME
+
+
+
+
+CREATE TABLE test_member (
+		mem_no INT(11) PRIMARY KEY AUTO_INCREMENT
+		,mem_name VARCHAR(50)
+		);
+		
+INSERT INTO test_member (mem_name)
+VALUES('김민규');
+INSERT INTO test_member (mem_name)
+VALUES('김민구');
+
+DROP TABLE test_member;
+
+SELECT *
+FROM test_member;
+
+ALTER TABLE test_member
+MODIFY mem_no
+INT NOT NULL AUTO_INCREMENT;test_employees
+
+
+SHOW INDEX FROM employees;
+
+CREATE INDEX
+		idx_employees_last_name ON employees(last_name);
+		
+SHOW INDEX FROM employees;
+
+DROP INDEX idx_employees_last_name ON employees;
+
+SELECT *
+FROM employees WHERE last_name = 'swan';
+
