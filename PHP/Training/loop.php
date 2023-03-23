@@ -71,14 +71,13 @@ while($i < $num)
 // 공백 3번째
 
 $num = 10;
-$num_1 = 2*$i;
 $i = 0;
 $ii = 0;
 $iii = 0;
 
 while($i < $num)
 {
-    while($ii <= 2*$i)
+    while($ii <= 3*$i)
     {
         while($iii <= $num - 1)
         {
@@ -88,10 +87,11 @@ while($i < $num)
         echo "*";
         $ii++;
     }
-    echo"\n";
     $i++;
     $ii = $i;
     $iii = $ii;
+    echo"\n";
+   
 
 }
 
