@@ -23,25 +23,26 @@ if($score > 100 || $score < 0)
 $rank = "잘못된 값을 입력 했습니다.";
 echo $rank;
 }
-else{
-if($score === 100){
-    $rank = "<A+>";
-}
-else if($score >= 90){
-    $rank = "<A>";
-}
-else if($score >= 80){
-    $rank = "<B>";
-}
-else if ($score >= 70){
-    $rank = "<C>";
-}
-else if ($score >= 60){
-    $rank = "<D>";
-}
-else{
-    $rank = "<F>";
-}
+else
+{
+    if($score === 100){
+        $rank = "<A+>";
+    }
+    else if($score >= 90){
+        $rank = "<A>";
+    }
+    else if($score >= 80){
+        $rank = "<B>";
+    }
+    else if ($score >= 70){
+        $rank = "<C>";
+    }
+    else if ($score >= 60){
+        $rank = "<D>";
+    }
+    else{
+        $rank = "<F>";
+    }
 echo $text_1.$score.$text_2.$rank;
 }
 
