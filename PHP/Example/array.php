@@ -50,7 +50,7 @@
 
     // 배열의 원소 삭제
     $arr_week = array("Sun", "Mon", "delete", "Tue", "Wed");
-    unset($arr_week[2]);
+    unset($arr_week[3]);
     print_r($arr_week);
 
     
