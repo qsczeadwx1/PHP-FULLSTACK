@@ -70,16 +70,17 @@ while($i < $num)
 // 별찍는게 2번째
 // 공백 3번째
 
-$num = 10;
+$height = 5;
 $i = 0;
 $ii = 0;
 $iii = 0;
+$star_add = 2;
 
-while($i < $num)
+while($i < $height)
 {
-    while($ii <= 3*$i)
+    while($ii <= $star_add*$i)
     {
-        while($iii <= $num - 1)
+        while($iii <= $height - 1)
         {
             echo " ";
             $iii++;
@@ -91,9 +92,8 @@ while($i < $num)
     $ii = $i;
     $iii = $ii;
     echo"\n";
-   
-
 }
+
 
 
 
