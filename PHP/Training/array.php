@@ -13,9 +13,32 @@ print $food[$rand_food];
 $food1 = array("햄버거" => "패티"
             ,"라면" => "면"
             ,"피자" => "치즈"
-            ,"치킨" => "닭");
+            ,"치킨" => "닭"
+        );
 
 echo $food1["햄버거"];
 unset($food1["라면"]);
 var_dump($food1);
+
+// foreach문을 이용해서 키가 "삭제"인 요소를 제거해주세요
+$food2 = array("햄버거" => "패티"
+            ,"라면" => "면"
+            ,"삭제" => "값값"
+            ,"피자" => "치즈"
+            ,"치킨" => "닭"
+        );
+
+    foreach( $food2 as $key => $val)
+    {
+        if($key != "삭제")
+        {
+            echo $key." : ".$val."\n";
+        }
+        else
+        {
+            unset($food2[$key]);
+        }
+    }
+var_dump($food2);
+
 ?>
