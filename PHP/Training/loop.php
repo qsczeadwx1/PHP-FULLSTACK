@@ -74,7 +74,7 @@ $height = 5;
 $i = 0;
 $ii = 0;
 $iii = 0;
-$star_add = 2;
+$star_add = 3;
 
 while($i < $height)
 {

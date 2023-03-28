@@ -30,7 +30,7 @@ $food2 = array("햄버거" => "패티"
 
     foreach( $food2 as $key => $val)
     {
-        if($key != "삭제")
+        if($key !== "삭제")
         {
             echo $key." : ".$val."\n";
         }
