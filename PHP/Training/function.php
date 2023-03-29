@@ -116,80 +116,113 @@ echo "\n".rcc(5);
 
 // 함수만든것들 *찍는 함수를 넣어서 새로만들기
 
-function star( $height)
+function star_recur( $height)
 {
     $ii = 0;
     if($ii !== $height)
     {
-        return str_repeat("*", $height)."\n".star($height - 1);
-    }
-}
-echo star(7);
-
-function star_add($star)
-{
-    echo str_repeat("*", $star);
-}
-star_add(5);
-
-
-function star_2($height)
-{
-    $i = 0;
-    $ii = 0;
-    while($i < $height)
-    {
-        while($ii < $i+1)
-        {
-            echo "*";
-            $ii++;
-        }
-        echo "\n";
-        $i++;
-        $ii = 0;
+        return str_repeat("*", $height)."\n".star_recur($height - 1);
     }
 }
 
-star_2(5);
-
-function star_3($height)
+function star($num)
 {
-    $i = 0;
-    $ii = 0;
-    while($i < $height)
+    for($i=0; $i<$num; $i++)
     {
-        while($ii < $height)
-        {
-            echo "*";
-            $ii++;
-        }
-    
+        echo "*";
+    }
     echo "\n";
-    $i++;
-    $ii = $i;
-    }
 }
 
-star_3(5);
-
-function star_4($height)
+function print_star($num)
 {
-    $i = 0;
-    $ii = 0;
-    while($i < $height)
+    for($i=0; $i<$num; $i++)
     {
-        while($ii < $height)
-        {
-            echo "*";
-            $ii++;
-        }
-    echo "\n";
-    $i++;
-    $ii=0;
+        star($num);
     }
 }
 
-star_4(5);
+function print_star_asc($num)
+{
+    for($i=0 ; $i<=$num; $i++)
+    {
+        star($i);
+    }
+}
+
+function print_star_desc($num)
+{
+    for($i=$num; $i>0; $i--)
+    {
+        star($i);
+    }
+}
+echo "\n";
+echo star_recur(7);
+echo "\n";
+print_star(3);
+echo "\n";
+print_star_asc(5);
+echo "\n";
+print_star_desc(5);
+
+
+
+
+
+// 배열 안에 최대 값, 최솟 값을 출력해주는 함수를 구현
+// 함수명 "my_max", "my_min"
+
+$arr = array(5, 10, 7, 3, 1, 20);
+
+function my_max($arr)
+{
+    $max_num = $arr[0];
+    $count_arr = count($arr);
+    for($i = 1; $i < $count_arr; $i++)
+    {
+        if($max_num < $arr[$i])
+        {
+            $max_num = $arr[$i];
+        }
+    }
+    return $max_num;
+}
+
+function my_min($arr)
+{
+    $min_num = $arr[0];
+    $count_arr = count($arr);
+    for($i = 1; $i < $count_arr; $i++)
+    {
+        if($min_num > $arr[$i])
+        {
+            $min_num = $arr[$i];
+        }
+    }
+    return $min_num;
+}
+
+echo my_max($arr)."\n";
+echo my_min($arr);
+
+function my_max_1($arr)
+{
+    $max_1_num = $arr[0];
+    $count_arr = count($arr);
+    foreach($arr as $val)
+    {
+        if($max_1_num < $val)
+        {
+            $max_1_num = $val;
+        }
+    }
+    return $max_1_num;
+}
+
+echo "\n".my_max_1($arr);
+
+
 
 ?>
 
