@@ -35,19 +35,19 @@ $arr_num = array();
 $ran_num = mt_rand(1, 45);
 
 
-function lottery()
-{
-    array_push($arr_num, $ran_num);
-    for($i=1; $i < 6; $i++)
-    {
-            for($ii=0; $ii<$i; $ii++)
-            {
-                if()
-                {
+// function lottery()
+// {
+//     array_push($arr_num, $ran_num);
+//     for($i=1; $i < 6; $i++)
+//     {
+//             for($ii=0; $ii<$i; $ii++)
+//             {
+//                 if()
+//                 {
                     
-                }
-                $i--;
-            }
-    }
-}
+//                 }
+//                 $i--;
+//             }
+//     }
+// }
 ?>

@@ -49,4 +49,30 @@ echo "\n";
 $obj_student->set_std_id("갑순이id"); 
 echo $obj_student->get_std_id();
 
+
+
+
+// 생성자(constructor)
+
+class Food
+{
+    private $food_name;
+
+    // 생성자       php5.3.3버전부터 생성자를만드려면 __construct를 사용해서 만들어야함
+    //              그전에는 class와 이름을 같이
+    public function __construct( $param_food_name )
+    {
+        $this->food_name = $param_food_name;
+    }
+
+    public function print_food_name()
+    {
+        echo $this->food_name;
+    }
+    
+}
+
+$obj_food = new Food("탕수육");
+$obj_food->print_food_name();
+
 ?>
