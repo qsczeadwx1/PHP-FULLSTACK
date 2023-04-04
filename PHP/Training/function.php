@@ -116,7 +116,7 @@ echo "\n".rcc(5);
 
 // 함수만든것들 *찍는 함수를 넣어서 새로만들기
 
-function star_recur( $height)
+function star_recur( $height )
 {
     $ii = 0;
     if($ii !== $height)
