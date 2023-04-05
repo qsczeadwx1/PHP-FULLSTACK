@@ -1,6 +1,6 @@
 <?php
 
-// CLASS : 같은 객체들이 모여있는 집합
+// CLASS : 같은(비슷한) 객체들이 모여있는 집합
 
 class Student
 {
@@ -35,11 +35,11 @@ class Student
 // class를 초기화
 $obj_student = new Student;
 // class의 method를 호출
-$obj_student -> print_student("홍길동", 27);
+$obj_student->print_student("홍길동", 27);
 // class의 멤버변수 사용 방법
-echo $obj_student -> std_name;
-$obj_student -> std_name = "갑돌이";
-echo $obj_student -> std_name;
+echo $obj_student->std_name;
+$obj_student->std_name = "갑돌이";
+echo $obj_student->std_name;
 echo "\n";
 // 지시자가 private이기 때문에 접근 권한이 없다.
 // $obj_student -> std_id = "갑순이";

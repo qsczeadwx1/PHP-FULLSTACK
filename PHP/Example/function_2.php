@@ -95,27 +95,57 @@ function gugudan($dan, $num)
 }
 gugudan(9,9);
 
-function print_star($star)
+// function print_star($star)
+// {
+//     for($i=0; $i < $star; $i++)
+//     {
+//         echo "*";
+//     }
+//     echo "\n";
+// }
+
+
+// print_star(1);
+// print_star(2);
+// print_star(3);
+// print_star(4);
+// print_star(5);
+
+// $height = 10;
+// for($i=0; $i < $height; $i++)
+// {
+//     print_star($i);
+// }
+
+// 위 함수를 내가 원하는 문자로 찍고 싶다는 요청이 왔을때
+
+/***********************************
+파일명 : 
+시스템명 : 
+이력
+    v001 : new - d1111
+    v002 : fnc_print_str 수정 - d1111
+
+
+************************************/
+
+// function print_star($num) // v002 del
+function print_star($num, $str = " * ") // v002 add 함수 파라미터에 = 붙이는거는 두번째 파라미터 부터 가능
 {
-    for($i=0; $i < $star; $i++)
+    for($i=0; $i < $num; $i++)
     {
-        echo "*";
+        // echo "*"; v002 del
+        echo $str; // v002 add
     }
     echo "\n";
 }
 
-print_star(1);
-print_star(2);
-print_star(3);
-print_star(4);
-print_star(5);
 
-$height = 10;
-for($i=0; $i < $height; $i++)
-{
-    print_star($i);
-}
-
+print_star(5,"@");
+print_star(4,"@");
+print_star(3,"@");
+print_star(2,"@");
+print_star(1,"@");
 
 
 // function print_star_1($height)
@@ -132,7 +162,16 @@ for($i=0; $i < $height; $i++)
 
 // print_star_1(5);
 
-
+function fnc_reference_2( &$param_str )
+{
+    echo "2번 : $param_str \n";
+    $param_str = "fnc_reference2에서 값 변경";
+    echo "3번 : $param_str \n";
+}
+$str = "aaa";
+echo "1번 : $str \n";
+fnc_reference_2( $str );
+echo "4번 : $str \n";
 
 
 ?>
