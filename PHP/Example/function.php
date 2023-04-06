@@ -70,8 +70,22 @@ function fnc_add_3()
     $i++;
 }
 
-for($i = 0; $i < 3; $i++)
+for($i = 0; $i < 10; $i++)
 {
     fnc_add_3();
 }
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+fnc_add_3();
+
 ?>

@@ -1,57 +1,5 @@
 <?php
 
-// 카드의 총합을 21로 만들거나 딜러보다 21에 가깝게 만들면 이기는게임 
-// 카드는 조커를 제외한 52장으로 플레이
-// J Q K는 10으로 계산하며, A는 1과 11 둘다 사용가능
-// 시작시에 딜러와 플레이어는 각각 카드 두장을 받으며,
-// 딜러는 받은 카드 하나만 공개
-// 그 뒤 플레이어는 카드를 하나씩 뽑을 수 있고,
-// 카드의 총합이 21이 되기 전까지 몇장이든 카드를 뽑는 것이 가능
-// 다만 총합이 21을 넘기면 딜러의 총합과는 관계없이 패배
-// 21이 되기전 플레이어는 카드를 더 이상 받지 않을 수 있고,
-// 카드 받는 것을 멈췄을 때,
-// 딜러는 처음 받은 카드 중 공개하지 않았던 카드를 공개하고
-// 카드의 총합이 21혹은 플레이어가 STAND했을때의 합보다 높을때 까지 카드를 뽑음
-// 하지만 딜러는 총합이 16이하일 경우엔 무조건 HIT,
-// 17이상일 경우엔 무조건 STAND를 해야됨
-// 처음 받은 두장의 카드의 합이 21일 경우엔 블랙잭으로, 바로 플레이어의 승
-
-
-// 카드를 뽑는것 "HIT"
-// 카드를 더 뽑지 않고 멈추는 것 "STAND"
-// 카드의 총합이 21을 초과 "BUST"
-// 시작시에 받은 카드 두장으로 21(A + 10,J,Q,K)이 완성되는 경우 "BLACK_JACK"
-
-
-
-
-// 카드의 총합을 21로 만들거나 딜러보다 21에 가깝게 만들면 이기는게임 
-// 1. 게임 시작시 유저와 딜러는 카드를 2개 받는다
-//     1.1. 이때 유저 또는 딜러의 카드 합이 21이면 결과 출력
-// 2. 카드 합이 21을 초과하면 패배
-//     2.1. 유저 또는 딜러의 카드의 합이 21이 넘으면 결과 바로 출력
-// 3. 카드의 계산은 아래의 규칙을 따른다
-//     3.1. 카드 2~9는 그 숫자대로 점수
-//     3.2. K.Q.J.10은 10점
-//     3.3. A는 1점 또는 11점 둘 중의 하나로 계산은
-// 4. 카드의 합이 같으면 다음의 규칙에 따름
-//     4.1. 카드 수가 적은 쪽이 승리
-//     4.2. 카드 수가 같을 경우 비김
-// 5. 유저가 카드를 받을 때 딜러는 아래의 규칙을 따른다.
-//     5.1. 딜러는 카드의 합이 17보다 낮을 경우 카드를 더 받음
-//     5.2. 17 이상일 경우는 받지 않는다.
-// 6. 1입력 : 카드 더받기, 2입력 : 카드비교, 0입력 : 게임종료
-// 한번 사용한 카드는 다시 쓸 수 없음
-// 동시에 21을 넘게되면 유저패배
-
-
-// 배열로 카드뭉치를 설정하고
-// 플레이어와 딜러는 카드 빈배열로 설정
-// 카드뭉치의 배열에서 랜덤으로 카드를 뽑고,
-// 그 랜덤으로 뽑은 카드는 카드뭉치 배열에서 지우고
-// 플레이어와 딜러의 배열에 추가
-// 두 배열의 합을 비교해서 합이 더 큰 사람이 승리
-
 // while(true) {
 // 	echo '시작';
 // 	print "\n";
@@ -64,140 +12,162 @@
 // }
 // echo "끝!\n";
 
-$deck = array( "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"
-                ,"A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"
-                ,"A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"
-                ,"A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"
-                );
 
-$total = count($deck)-1;
-
-$player = array();
-
-    $random = mt_rand(0,$total);
-    $arr = array_push($player, $deck[$random]);
-    array_splice($deck, array_search($deck[$random],$deck),1 );
-    --$total;
-
-player( $player );
-
-$player_result = array_sum($player);
-
-print_r($player);
-
-$dealer = array();
-
-// 처음에 플레이어 먼저 두장 뽑고 J Q K는 10점으로 치환
-// A는 ....
-// 두개의 합을 내고 21인지 체크 
-
-// 다음 딜러가 두장 뽑고 J Q K는 10점으로 치환
-// A는 .....
-// 두개의 합을 내고 21인지 체크
-
-// 서로 21일 때 수가 같으면 비김
-
-// 아니면 유저는 카드를 더뽑을지 카드를 비교할지 선택
-// 유저가 카드를 받기로 선택했을 때
-// 딜러 카드합이 17이 넘지 않으면 유저 혼자 카드를 뽑고
-// 아니라면 딜러도 같이 카드를 뽑음
-// 다시 합이 21인지 또는 21을 넘어갔는지 체크
-
-// 유저의 카드합이 21이 넘지않았다면 위과정을 반복
-
-// 유저가 카드 비교를 눌렀을 때,
-// 쓴 카드는 그대로 버리고 게임 재진행,
-// 게임 재진행을 눌렀을 땐 유저와 딜러의 배열도 비워서 시작해야됨
-
-// 그렇게 카드를 모두 소진하거나,
-// 그만두기를 누르면 게임종료
+// $random = mt_rand(0,$total);
+// $arr = array_push($player, $deck[$random]);
+// array_splice($deck, array_search($deck[$random],$deck),1 );
+// --$total;
 
 
+class Blackjack
+{
+	private $arr_num;
+	private $arr_shape;
+	private $arr_deck;
+	private $player = array();
+	private $dealer = array();
+	private $player_score = array();
+	private $dealer_score = array();
+	private $num = 0;
+
+	// construct
+	public function __construct()
+	{
+		$this->arr_num = array( "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
+		$this->arr_shape = array("♠", "♣", "◆", "♥");
+		$this->set_deck();
+		$this->deck_shuffle();
+	}
+
+	// set
+	private function set_deck()
+	{
+		// 카드 52장 덱에 셋팅
+		foreach( $this->arr_shape as $shape )
+		{
+			foreach( $this->arr_num as $num )
+			{
+				$this->arr_deck[] = $shape.$num;
+			}
+		}
+	}
+
+// 덱 섞음
+	public function deck_shuffle()
+	{
+		shuffle($this->arr_deck);
+	}
+
+// 카드뽑음
+	public function draw_card()
+	{
+		$card = $this->arr_deck[$this->num];
+		$this->num++;
+		return $card;
+	}
 
 
+	public function add_player_card()
+	{
+		array_push($this->player, $this->draw_card());
+	}
 
-// 일단 어레이 카드를 넣고
-// 셔플써서 랜덤 배열을 만들고
-// 카운트가 처음엔 52에서 0번 카드를 뽑아주고
-// 다음되면 51에서 1번카드
-// ~~~~ 카운트가 1번 되면 51번카드를 마지막으로 뽑고
-// 0되면 자동종료
-
-
-
-
+	public function add_player_score_conv()
+	{
+		$score = intval($this->player);
+	}
 
 
+	public function add_player_score()
+	{
+		array_push($this->player_score, $this->player[0]); // 
+	}
 
 
+	public function add_dealer_card()
+	{
+		array_push($this->dealer, $this->draw_card());
+	}
+
+	public function add_dealer_score()
+	{
+		
+	}
+	
+	public function add_1()
+	{
+		var_dump($this->player);
+	}
+
+	public function add_2()
+	{
+		var_dump($this->dealer);
+	}
+
+	public function add()
+	{
+		var_dump($this->arr_deck);
+	}
+
+	public function add_3()
+	{
+		var_dump($this->player_score);
+	}
+
+	// $player = array();
+	// $dealer = array();
+	// $player_score = array();
+	// $dealer_score = array();
+	
+
+}
 
 
+$obj_blackjack = new Blackjack;
 
+$obj_blackjack->add_player_card();
+$obj_blackjack->add_player_score();
+$obj_blackjack->add_3();
+$obj_blackjack->add_player_card();
 
+$obj_blackjack->add_dealer_card();
+$obj_blackjack->add_dealer_card();
 
-// $player에 랜덤으로 뽑은 카드 값 넣기
-
-
-// for($i = 0; $i < 2; $i++)
+// foreach( $obj_blackjack->player_score as $val )
 // {
-//     $random = mt_rand(0,$total);
-//     $arr = array_push($player, $deck[$random]);
-//     array_splice($deck, array_search($deck[$random],$deck),1 );
-//     --$total;
+// 	if()
 // }
 
 
-// $dealer에 랜덤으로 뽑은 카드 값 넣기
-// for($i = 0; $i < 2; $i++)
-// {
-//     $random = mt_rand(0,$total);
-//     $arr = array_push($dealer, $deck[$random]);
-//     array_splice($deck, array_search($deck[$random],$deck),1 );
-//     --$total;
-// }
 
 
-// $dealer_result = array_sum($dealer);
+// 셔플써서 배열먼저 가져오고
+// 0번부터 배열을 하나씩 뽑음, 지우지는 않고
+// 카드를 하나씩 뽑고
+// 플레이어가 받은 카드 배열과
+// 플레이어가 받은 카드를 점수로 치환한 배열을 따로 만듬
+// 카드 배열로 뽑은 카드를 나나태고 %2 $a, 치환한 배열을 array sum으로 합계점수를 계산
 
 
-
-
-// print_r($deck);
-
-
-// $total = count($deck)-1;
-
-// function rand_num( $param_people )
-// {
-//     for($i = 0; $i < 52; $i++)
-//     {
-//         $random = mt_rand(0,$total);
-//         array_push($param_people, $deck[$random]);
-//         array_splice($deck, array_search($deck[$random],$deck),1 );
-//     }
-// }
-
-
-// $rand_deck = array_rand($deck);
-// print $deck[$rand_deck];
+// 처음 함수를 호출하면 섞인 덱이 나오고
+// 카드뽑기 함수를 써서
+// 배열에서 카드를 하나뽑아오고
+// 그 뽑아온 카드를 함수를 써서 플레이어 덱에 넣어주고
+// 딜러도 똑같이
+// ------------------------------------------------
+// J Q K을 포함한 배열은 10점으로 치환하고
+// 나머지 숫자 그대로 치환
+// A의 경우에는
+// 일단 A를 전부 1점으로 설정을 해놓고
+// A가 하나라도 있을때 총합계가 11점 이하라면
+// 총합계에서 10점을 더해주도록 만들기
 
 
 
-
-// 먼저 플레이어 2장, 딜러 2장뽑고
-// 플레이어 합이 21이면 승
-
-
-// 21이 아니면 플레이어는 카드를 한장씩뽑고
-// 뽑았을때 21이 넘어간다면 패배
-// 21이 넘어가지 않는다면 카드를 더 뽑을지, 그만 뽑을지 설정 가능
-
-// 플레이어가 STAND를 선언하면,
-// 딜러의 처음 뽑아놓았던 2장이 21이면 플레이어 패배
-
-// 21이 아니라면 딜러는 카드를 뽑기 시작하고,
-// 플레이어보다 카드의 합이 크다면 플레이어 패배
-// 21이 넘어가게 된다면 플레이어 승리
+// if써서 전부 일단 인트로 치환해서 넣어주고
+// array_sum써서 더하는데
+// 1이 하나라도 있을 경우 && 총합계가 11점이하일때
+// 총합계에서 10점을 더해주도록....
 
 
 ?>
