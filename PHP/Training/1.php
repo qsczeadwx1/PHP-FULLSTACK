@@ -50,4 +50,15 @@ $ran_num = mt_rand(1, 45);
 //             }
 //     }
 // }
+
+$arr = array(1, 2, 3, 4, 5, 6, 7);
+
+foreach($arr as $key => $val)
+{
+		echo $val;
+}
+
+
+
+
 ?>

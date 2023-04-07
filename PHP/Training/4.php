@@ -1,24 +1,5 @@
 <?php
 
-// while(true) {
-// 	echo '시작';
-// 	print "\n";
-// 	fscanf(STDIN, "%d\n", $input);        
-// 	if($input === 0) {
-// 		break;
-// 	}
-// 	echo $input;
-// 	print "\n";
-// }
-// echo "끝!\n";
-
-
-// $random = mt_rand(0,$total);
-// $arr = array_push($player, $deck[$random]);
-// array_splice($deck, array_search($deck[$random],$deck),1 );
-// --$total;
-
-
 class Blackjack
 {
 	private $arr_num;
@@ -127,7 +108,10 @@ class Blackjack
 // 뽑은카드 dealer 배열에 하나씩 추가
 	public function add_dealer_card()
 	{
+		if($this->d_sum_score < 17 )
+		{
 			array_push($this->dealer, $this->draw_card());
+		}
 	}
 
 // dealer가 뽑은 카드 출력
@@ -165,7 +149,7 @@ public function add_dealer_score_conv()
 public function d_score_sum()
 {
 	$this->d_sum_score = array_sum($this->dealer_score);
-	if(in_array(1, $this->dealer_score) == true && $this->d_sum_score < 21)
+	if(in_array(1, $this->dealer_score) == true)
 	{
 		$this->d_sum_score += 10;
 	}
@@ -176,32 +160,89 @@ public function echo_d_score_sum()
 	echo $this->d_sum_score."점\n";
 }
 
+public function aaaa()
+{
+
+}
 
 }
 
 
-$obj_blackjack = new Blackjack;
+while(true) {
+	echo '시작';
+	print "\n";
+    $obj_blackjack = new Blackjack;
+    $obj_blackjack->add_player_card();
+    $obj_blackjack->add_player_card();
+    $obj_blackjack->echo_player_card();
+    $obj_blackjack->add_player_score_conv();
+    $obj_blackjack->p_score_sum();
+    $obj_blackjack->echo_p_score_sum();
+    $obj_blackjack->add_dealer_card();
+    $obj_blackjack->add_dealer_card();
+    $obj_blackjack->echo_dealer_card();
+    $obj_blackjack->add_dealer_score_conv();
+    $obj_blackjack->d_score_sum();
+    $obj_blackjack->echo_d_score_sum();
+    
+	fscanf(STDIN, "%d\n", $input);        
+	if($input === 0) {
+		break;
+	}
+    elseif($input === 1)
+    {
 
-$obj_blackjack->add_player_card();
-$obj_blackjack->add_player_card();
-$obj_blackjack->add_player_card();
-$obj_blackjack->add_player_card();
-$obj_blackjack->echo_player_card();
-$obj_blackjack->add_player_score_conv();
-$obj_blackjack->p_score_sum();
-$obj_blackjack->echo_p_score_sum();
-$obj_blackjack->add_dealer_card();
-$obj_blackjack->add_dealer_card();
-$obj_blackjack->add_dealer_card();
-$obj_blackjack->add_dealer_card();
-$obj_blackjack->echo_dealer_card();
-$obj_blackjack->add_dealer_score_conv();
-$obj_blackjack->d_score_sum();
-$obj_blackjack->echo_d_score_sum();
+    }
+	echo $input;
+	print "\n";
+}
+echo "끝!\n";
+
+
+// $random = mt_rand(0,$total);
+// $arr = array_push($player, $deck[$random]);
+// array_splice($deck, array_search($deck[$random],$deck),1 );
+// --$total;
 
 
 
 
+// $obj_blackjack->add_player_card();
+// $obj_blackjack->add_player_card();
+// $obj_blackjack->add_player_score_conv();
+// $obj_blackjack->score_sum();
+
+// 처음 함수를 호출하면 섞인 덱이 나오고
+// 카드뽑기 함수를 써서
+// 배열에서 카드를 하나뽑아오고
+// 그 뽑아온 카드를 함수를 써서 플레이어 덱에 넣어주고
+// 딜러도 똑같이
+// ------------------------------------------------
+// J Q K을 포함한 배열은 10점으로 치환하고
+// 나머지 숫자 그대로 치환
+// A의 경우에는
+// 일단 A를 전부 1점으로 설정을 해놓고
+// A가 하나라도 있을때 총합계가 11점 이하라면
+// 총합계에서 10점을 더해주도록 만들기
 
 
-?>
+// 플레이어가 카드를 뽑고
+// foreach문 써서 뽑은만큼 echo로 뽑은 카드 나타내주고
+// 점수치환해서 점수배열에 넣고
+// arraysum으로 그 점수 합쳐서 합계내고
+// 21점 넘는지 체크
+
+// 카드뽑는함수ㅁ
+// foreach로 카드 나타내는 함수ㅁ
+// 점수치환하는 함수ㅁ
+// 점수 배열에 넣는함수ㅁ
+// arraysum으로 합치는 함수ㅁ
+// 점수내서 echo하는 함수ㅁ
+// 21점 넘는지 체크하는 함수
+
+// 카드를 뽑았는데 21점이 넘는다면 패배
+
+
+// 만약 뽑기 함수를 썻는데
+// 딜러는 합이 17이 넘는다면
+// 더이상 뽑지않음
