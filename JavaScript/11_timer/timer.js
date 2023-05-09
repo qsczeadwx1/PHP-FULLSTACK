@@ -20,11 +20,41 @@ const timeset = setInterval(() => {
     }
 }, 1000);
 let i = 1;
-const now = new Date();
+
 const now123 = document.querySelector('.now_time');
-const timer1 = setInterval(() => Math.floor((now.getTime() / 1000) + i++), 1000);
+// const timer1 = setInterval(() => Math.floor((now.getTime() / 1000) + i++), 1000);
 
+function nowTime() {
+    const now = new Date();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+    if( h < 12 ) {
+        h = " 오전 " + now.getHours();
+    }
+    else if( h > 12) {
+        h = " 오후 " + ( 12 - now.getHours());
+    }
+    now123.innerText = ("현재시간" + h + " : "+ (m < 10 ? "0"+m : m) + " : " + (s < 10 ? "0"+s : s) );
+}
 
+nowTime();
+let setTimer = setInterval(nowTime,1000);
+
+const stop1 = document.querySelector('.stop_btn');
+
+stop1.addEventListener('click', () => {
+    setTimer = clearInterval(setTimer);
+});
+
+const restart1 = document.querySelector('.restart_btn');
+
+restart1.addEventListener('click', () => {
+    if(!setTimer) {
+    nowTime();
+    setTimer = setInterval(nowTime,1000);
+    }
+});
 
 
 
