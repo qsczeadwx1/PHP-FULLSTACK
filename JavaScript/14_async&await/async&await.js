@@ -1,4 +1,9 @@
+// 1. async & await 란?
+// 	비동기처리를 좀 더 가독성 좋고 편하게 쓰기위해 promise를사용했는데,
+// 	promise 또한 체이닝이 계속 될 경우 코드가 난잡해 질 수 있어 async & await가 도입되었습니다.
+// 	async & await는 promise를 기반으로 동작합니다.
 
+// 2. async
 // 동기처리
 // function delay() {
 //     const delayTime = Date.now() +2000;
@@ -9,7 +14,7 @@
 // delay();
 // console.log('C');
 
-// promise로 비동기 처리 처럼보이게 만듬
+// promise로 비동기 처리 처럼보이게 
 // function delay2() {
 //     return new Promise ((resolve) => {
 //     const delayTime = Date.now() +2000;
@@ -46,7 +51,8 @@ async function getB() {
     return 'B';
 }
 
-// promise 방식으로 출력
+
+// promise 방식으로 출력(promise도 체이닝이 많아지면 콜백지옥과 비슷해짐)
 // function getAll() {
 //     getA()
 //     .then(strA => { 
@@ -55,7 +61,9 @@ async function getB() {
 //     });
 // }
 
-// async를 이용할 경우
+
+// 병렬처리를 하려는 경우
+// async를 이용할 순 있지만, 잘 사용안함
 async function getAll2() {
     const strA = await getA();
     const strB = await getB();
@@ -65,10 +73,16 @@ async function getAll2() {
 
 getAll2();
 
-// 병렬처리 방법
+// Promise.all() 메소드 이용
 async function getAll3() {
     Promise.all([getA(), getB()])
     .then(all => console.log(all.join(' : ')));
 }
 
 getAll3();
+
+// 복수의 Promise객체 중 먼저 완료 된 객체만 이용 : Promise.race() 메소드
+// async function getAll() {
+// 	return Promise.race([getA(), getB()]);
+// }
+// getAll().then(console.log);

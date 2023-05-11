@@ -1,5 +1,18 @@
 
+// 1. promise 객체
+// 	- 비동기 프로그래밍의 근간이 되는 기법 중 하나
+// 	- 프로미스를 사용하면 콜백 함수를 대체하고, 비동기 작업의 흐름을 쉽게 제어가능
+// 	- Promise 객체는 비동기 작업의 최종 완료 또는 실패를 나타내는 독자적인 객체
+
+// 2. promise 사용법
+	// promise객체 만드실 때 보내는 콜백함수 
+	// 	- resolve : 호출하면 then이 실행
+	// 	- reject : 호출하면 catch가 실행
+
+
+
 // const promise1 = new Promise((resolve, reject) => {
+    //      비동기 작업 수행
 //     const data = true;
 
 //     if(data) {
