@@ -16,9 +16,9 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-            return [
-                'no' => $this->faker->randomNumber(1)
-                ,'name' => $this->faker->realText(30)
-            ];
+            // return [
+            //     'no' => $this->faker->randomNumber(1)
+            //     ,'name' => $this->faker->realText(30)
+            // ];
     }
 }

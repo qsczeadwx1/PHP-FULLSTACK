@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // 초기 데이터 삽입용 시더 호출
-        // $this->call(CategorySeeder::class);
+        $this->call(CategorySeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
         // 더미 데이터  삽입용 팩토리 호출
-        \App\Models\Board::factory(100)->create();
-        \App\Models\Category::factory(100)->create();
+        // \App\Models\Board::factory(100)->create();
+        // \App\Models\Category::factory(100)->create();
     }
 }
 
