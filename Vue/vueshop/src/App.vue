@@ -4,12 +4,29 @@
   <!-- 네비 -->
   <Navi :navList="navList"/>
   
+  <!-- 인풋 -->
+  <!-- <br>
+  <input type="text" v-model="inputTest">
+  <br>
+  <span>{{ inputTest }}</span>
+  <br> -->
+  
+  <div class="discount">
+    <p>지금 당장 구매하시면, {{ discountNum }}% 할인</p>
+  </div>
+  <br>
+  <br>
   <!-- 리스트 -->
-  <ProductList @openModal="modalFlg = true; productNum=i;" :modalFlg="modalFlg" :products="products" :key="i" v-for="(products, i) in products"/>
+  <ProductList @openModal="modalFlg = true; productNum=i;" :modalFlg="modalFlg" :products="products"  v-for="(products, i) in products" :key="i"/>
   
   <!-- 모달 -->
+  <Transition name="modalTransition">
+  <!-- <div class="startTransition" :class="{endTransition : modalFlg}"> -->
   <ProductModal @minus="minus(productNum)" @plus="plus(productNum)" :productNum="productNum" :products="products" :modalFlg="modalFlg" @closeModal="modalFlg = false;" />
+  <!-- </div> -->
+  </Transition>
 
+  
 </template>
 
 <script>
@@ -22,6 +39,9 @@ export default {
   name: 'App',
   data() { // 데이터 바인딩
     return {
+      timer1: 0,
+      discountNum: 20,
+      inputTest: '',
       navList: ['홈', '상품', '기타'],
       productNum: 0,
       count: 1,
@@ -34,6 +54,22 @@ export default {
       styleR: 'color:blue',
       styleL: 'list-style: none'
     }
+  },
+  updated() {
+    if(this.discountNum <= 0) {
+    clearInterval(this.timer1);
+    }
+  },
+  mounted() {
+    this.timer1 = setInterval(() => this.discountNum--,1000);
+  },
+  watch: { // 실시간 감시 함수 정의 영역
+    inputTest(input) {
+      if(input == 3) {
+        alert('3333');
+        this.inputTest = "";
+      }
+    },
   },
   methods: { // 함수를 설정하는 영역
     plus(i) {

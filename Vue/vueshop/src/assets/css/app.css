@@ -30,3 +30,43 @@ div {
     margin:0 auto;
     margin-top:20px;
 }
+
+.discount {
+    background-color: skyblue;
+    padding: 20px;
+    margin: 10px;
+    font-size: x-large;
+    
+}
+
+.startTransition {
+    opacity: 0;
+    transition: all 2s;
+}
+.endTransition {
+    opacity: 1;
+}
+
+/* 등장 애니메이션 */
+.modalTransition-enter-from {
+    opacity: 0;
+}
+.modalTransition-enter-active {
+    transition: all 2s;
+}
+.modalTransition-enter-to {
+    opacity: 1;
+}
+
+/* 퇴장 애니메이션 */
+.modalTransition-leave-from {
+    /* opacity: 1; */
+    transform: translateX(0px);
+}
+.modalTransition-leave-active {
+    transition: all 2s;
+}
+.modalTransition-leave-to {
+    /* opacity: 0; */
+    transform: translateX(100vw);
+}
