@@ -9,7 +9,9 @@ const store = createStore ({
             addBtnFlg: true, // 더보기 버튼 표시용 flg
             tabFlg: 0, // 탭UI flg (0:메인, 1:필터, 2:작성)
             imgUrl: '', // 이미지 url
-            imgClass: '',
+            imgClass: '', // 이미지 filter
+            imgFile: null, // 이미지 파일
+            content: '',  // 글 작성 내용
         }
     },
     mutations: { // 일반적인 Js 함수 정의
@@ -23,6 +25,10 @@ const store = createStore ({
             state.boardData.push(data);
             this.commit('changeLastId', data.id);
         },
+        // 작성글 데이터 셋팅용
+		addWriteData(state, data) {
+			state.boardData.unshift(data);
+		},
         // lastId 변경
         changeLastId(state, id) {
             state.lastId = id;
@@ -38,14 +44,33 @@ const store = createStore ({
         // 이미지 filter 변경
         changeImgClass(state, imgClass) {
             state.imgClass = imgClass;
-            // document.querySelector('.upload-img').className = 'upload-img '+ imgClass;
         },
+        // 이미지 file 변경
+        changeImgFile(state, imgFile) {
+            state.imgFile = imgFile;
+        },
+        // 글 내용 변경
+        changeContent(state, content) {
+            state.content = content;
+        },
+        // 작성 취소시 초가화
         resetImg(state) {
             state.imgClass = '';
             state.imgUrl = '';
-        }
+        },
+        // 업로드 이미지 변경
+		changePostImg(state, postImg){
+			state.postImg = postImg;
+		},
+        // 초기화
+        claerState(state) {
+			state.imgClass = '';
+			state.imgUrl = '';
+			state.imgFile = null;
+		},
     },
     actions: { // ajax나 비동기처리 함수들 정의
+        // 메인 게시글 습득
         getMainList(context) {
             axios.get('http://192.168.0.66/api/boards')
             .then(res => {
@@ -56,7 +81,7 @@ const store = createStore ({
                 console.log( err )
             })
         },
-        getMoreList(context) {
+        getMoreList(context) { // 게시글 추가 습득
             axios.get('http://192.168.0.66/api/boards/' + context.state.lastId)
             .then(res => {
                 if(res.data) {
@@ -65,6 +90,32 @@ const store = createStore ({
                     context.state.addBtnFlg = false;
                     alert('마지막 글입니다.');
                 }
+            })
+            .catch( err => {
+                console.log( err )
+            })
+        },
+        // 게시글 작성
+        writeContent(context) {
+            const data = {
+                name: '김민규',
+                filter: context.state.imgClass,
+                img: context.state.imgFile,
+                content: context.state.content,
+            };
+            console.log(context);
+            console.log(data);
+            const header = {
+                headers: {
+                    'Content-Type' : 'multipart/form-data'
+                }
+            };
+
+            axios.post('http://192.168.0.66/api/boards', data, header)
+            .then(res => {
+                context.commit('addWriteData', res.data);
+                context.commit('changeTabFlg', 0);
+                context.commit('clearState');
             })
             .catch( err => {
                 console.log( err )

@@ -16,7 +16,7 @@
     <div v-if="$store.state.tabFlg == 2">
         <div class="upload-img" :class="$store.state.imgClass" :style="{ backgroundImage : `url('${$store.state.imgUrl}')`}"></div>
         <div>
-            <textarea class="write-box" name="content" id="content" placeholder="글을 작성해 주세요."></textarea>
+            <textarea v-model="content" @input="$store.commit('changeContent', content)" class="write-box" name="content" id="content" placeholder="글을 작성해 주세요."></textarea>
         </div>
     </div>
 </template>
@@ -27,7 +27,7 @@ export default {
     name: 'ContainerComponent',
     data() {
         return {
-            filterList: [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"]
+            filterList: [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"],
         }
     },
     components: {

@@ -1,6 +1,6 @@
 <template>
     <div class="post" v-for="boardData in $store.state.boardData" :key="boardData">
-        <div class="post-img" :style="{ backgroundImage : `url('${boardData.img}')`}"></div>
+        <div class="post-img" :class="boardData.filter" :style="{ backgroundImage : `url('${boardData.img}')`}"></div>
         <div class="post-content">
             <p><strong>{{ boardData.name }}</strong></p>
             <p>{{ boardData.content }}</p>
