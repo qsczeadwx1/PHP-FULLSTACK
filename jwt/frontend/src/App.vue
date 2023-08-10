@@ -1,40 +1,49 @@
 <template>
-  <div id="app">
-    <h1 v-if="token"><loginLogin/></h1>
-    <button v-else @click="login">로그인</button>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import loginLogin from './components/loginLogin.vue';
+// import axios from 'axios';
+// import router from './router';
 
 export default {
   name: 'App',
-  data(){
-    return {
-      token: localStorage.getItem('token') || '',
-    }
-  },
-  components: {
-    loginLogin,
-  },
+  
   methods: {
-    login() {
-      axios.get('http://localhost:8000/api/token?id=ppp')
-        .then(res => {
-          console.log(res.data);
-          this.token = res.data.token;
-          // 로그인 성공 시 로그인 페이지로 이동
-          localStorage.setItem('token', this.token);
-          this.$router.push('/login');
-        })
-        .catch(error => {
-          if(error.status >= 400) {
-            console.log(error);
-          }
-        });
-    },
+    // login() {
+    //   router.push('main');
+      // axios.get('http://localhost:8000/api/token?id=ppp')
+      //   .then(res => {
+      //     console.log(res.data);
+      //     this.$store.state.token = res.data.token;
+      //     // 로그인 성공 시 로그인 페이지로 이동
+      //     // localStorage.setItem('token', this.token);
+      //     // this.$router.push('/login');
+      //   })
+      //   .catch(error => {
+      //     if(error.status >= 400) {
+      //       console.log(error);
+      //     }
+      //   });
+    // },
+    // logout() {
+    //   router.push('login');
+      // axios.get('http://localhost:8000/api/token?id=ppp')
+      //   .then(res => {
+      //     console.log(res.data);
+      //     this.$store.state.token = res.data.token;
+      //     // 로그인 성공 시 로그인 페이지로 이동
+      //     // localStorage.setItem('token', this.token);
+      //     // this.$router.push('/login');`
+      //   })
+      //   .catch(error => {
+      //     if(error.status >= 400) {
+      //       console.log(error);
+      //     }
+      //   });
+  //   },
   },
 };
 </script>
