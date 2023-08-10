@@ -1,27 +1,42 @@
 <template>
-  <button @click="login()">로그인</button>
+  <div id="app">
+    <h1 v-if="token"><loginLogin/></h1>
+    <button v-else @click="login">로그인</button>
+  </div>
 </template>
 
 <script>
 import axios from 'axios';
+import loginLogin from './components/loginLogin.vue';
 
 export default {
   name: 'App',
-  data() {
+  data(){
     return {
-      token: '',
+      token: localStorage.getItem('token') || '',
     }
+  },
+  components: {
+    loginLogin,
   },
   methods: {
     login() {
       axios.get('http://localhost:8000/api/token?id=ppp')
-      .then(res => {
-        console.log(res.data);
-        this.token = res.data.token;
-      })
+        .then(res => {
+          console.log(res.data);
+          this.token = res.data.token;
+          // 로그인 성공 시 로그인 페이지로 이동
+          localStorage.setItem('token', this.token);
+          this.$router.push('/login');
+        })
+        .catch(error => {
+          if(error.status >= 400) {
+            console.log(error);
+          }
+        });
     },
   },
-}
+};
 </script>
 
 <style>
