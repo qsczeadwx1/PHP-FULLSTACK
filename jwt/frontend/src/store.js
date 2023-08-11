@@ -1,8 +1,8 @@
 // import axios from 'axios';
-import { createStore } from 'vuex'
-import TokenController from './js/TokenController'
-import ApiController from './js/ApiController'
-import router from 'vue-router'
+import { createStore } from 'vuex';
+import TokenController from './js/TokenController';
+import ApiController from './js/ApiController';
+import router from './router';
 
 const store = createStore({
     state() {
@@ -15,7 +15,11 @@ const store = createStore({
         setToken(state, token) {
             TokenController.setToken(token);
             state.isToken = true;
-        }
+        },
+        destroyToken(state) {
+            TokenController.destoryToken();
+            state.isToken = false;
+        },
     },
     actions: {
         login(context, id) {
@@ -24,12 +28,26 @@ const store = createStore({
                 let token = res.data["token"];
                 console.log(token);
                 context.commit("setToken", token);
-                router.push('main');
+                router.push('/main');
             })
             .catch(error => {
                 console.log(error);
             });
         },
+        logout(context) {
+            context.commit("destroyToken");
+            router.push("/login");
+        },
+        // goToPath(context, path) {
+        //     console.log(context);
+        //     if (path === 'login' && context.state.isToken) {
+        //         router.push('/main');
+        //     } else if (path === 'main' && !context.state.isToken) {
+        //         router.push('/login');
+        //     } else {
+        //     router.push(path);
+        //     }
+        // }
     },
 })
 
