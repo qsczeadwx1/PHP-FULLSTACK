@@ -125,7 +125,12 @@ print_r($arr_expl);
 // 배열을 특정 문자열로 합치는 함수 : implode()
 $str_impl = implode(" : ", $arr_expl);
 
-echo $str_impl;
+echo $str_impl."\n";
+
+$num = 3.14213213123;
+
+printf("정수형식= %d, 실수형식= %0.10f", $num, $num);
+
 
 
 ?>

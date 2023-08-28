@@ -31,6 +31,7 @@ define("INT_ONE", 1);
 
 echo INT_ONE;
 
-
+echo PHP_OS."\n";
+echo PHP_VERSION."\n";
 
 ?>

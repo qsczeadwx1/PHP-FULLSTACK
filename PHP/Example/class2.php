@@ -75,6 +75,29 @@ class KoreanFood extends Food
 $obj_korean_food = new KoreanFood( "치킨", 20000, "치킨무" );
 $obj_korean_food->fnc_print_food();
 
+class Fruit
+{
+    private $name;
+    private $color;
+    private $price;
 
+    function __construct($name, $color, $price)
+    {
+        $this->name = $name;
+        $this->color = $color;
+        $this->price = $price;
+    }
+
+    function print_fruit()
+    {
+        echo "과일 이름 : ".$this->name."\n"
+        ."과일 색 : ".$this->color."\n"
+        ."과일 가격 : ".$this->price."\n";
+    }
+}
+
+$apple = new Fruit("apple","red","1000원");
+
+$apple->print_fruit();
 
 ?>

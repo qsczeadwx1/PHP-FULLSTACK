@@ -88,4 +88,10 @@ fnc_add_3();
 fnc_add_3();
 fnc_add_3();
 
+function fnc_sub1($a, $b = 3) {
+    echo $a - $b;
+}
+fnc_sub1(1);
+
+fnc_sub1(1, 5);
 ?>
