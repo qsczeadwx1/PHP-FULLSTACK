@@ -1,0 +1,6 @@
+DNS(Domain Name System)
+DNS의 주요기능은 사람이 읽을 수 있는 도메인 주소를 기계가 이해할 수 있는 IP주소로 변환시키는 것.
+
+Hosts
+C > Windows > System32 > drivers > etc > hosts에서
+설정한 PC에서 어떤 주소로 접속했을때, 강제로 설정한 IP로 접속하도록 만들 수 있음. 
